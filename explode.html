@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valentines</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-image"></div>
+  <div class="container">
+    <div class="text">
+    </div>
+    <br>
+    <div class="world-text">
+      <hh1>---The world if you say---</hh1>
+    </div>
+    <div class="yessir">
+      <div class="yes-option">
+        <h3>Yes!!</h3>
+        <img src="./yes.gif" alt="earth spinning" class="responsive-img">
+      </div>
+      <div class="no-option">
+        <h3>NO!</h3>
+        <img src="./no.gif" alt="earth spinning" class="responsive-img">
+      </div>
+    </div>
+    <div class="button-container">
+      <button id="goback" onclick=goback()>take me back</button>
+    </div>
+  </div>
+  <script src="app.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  emailjs.init("user_AcR1Hy6RbvMfEEoijcIOp");
+</script>
+
+</body>
+</html>

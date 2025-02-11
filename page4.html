@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valentines</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .text {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .typing {
+      font-size: 18px;
+      white-space: pre-wrap;
+      display: inline-block;
+      overflow: hidden;
+      border-right: 2px solid black; /* Simulates a cursor */
+      animation: blinkCursor 0.8s infinite;
+    }
+
+    @keyframes blinkCursor {
+      50% { border-color: transparent; }
+    }
+
+    #btnYes {
+      visibility: hidden;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff5f5f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: opacity 0.5s ease-in-out;
+      opacity: 0;
+    }
+
+    #btnYes.show {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-image"></div>
+  <div class="container">
+    <div class="text">
+      <h1 id="typing-text" class="typing"></h1>
+      <div class="button-container">
+        <button id="btnYes" onclick="nextpage()">nexttt</button>
+      </div>
+    </div>
+    <br>
+  </div>
+  <script src="app.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    emailjs.init("user_AcR1Hy6RbvMfEEoijcIOp");
+
+    const text = "i know we are in whole different continents right now and time is doing its thing........ and i can't be there to buy you the biggest BUT MODEST boquet known to man right now then take you on a night ride after...... but i hope you know you mean a lot to me and i genuinely cherish the few moments we had toghether... leading me to ask the question.............";
+    const typingElement = document.getElementById("typing-text");
+    const btnYes = document.getElementById("btnYes"); // Corrected selection
+    let index = 0;
+
+    function typeText() {
+      if (index < text.length) {
+        typingElement.textContent += text[index];
+        index++;
+        setTimeout(typeText, 70); // Adjust speed here (lower = faster)
+      } else {
+        typingElement.style.borderRight = "none"; // Remove cursor after typing
+        btnYes.classList.add("show"); // Show button after typing is done
+      }
+    }
+
+    setTimeout(typeText, 500); // Delay before typing starts
+
+    function nextpage() {
+      window.location.href = "page5.html"; // Change this to the desired page
+    }
+  </script>
+</body>
+</html>

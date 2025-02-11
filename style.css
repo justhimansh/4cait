@@ -4,6 +4,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: rgb(254, 129, 129);
+  color: white;
 }
 
 .bg-image {
@@ -43,6 +45,10 @@ body {
   padding: 20px;
 }
 
+.lovebear{
+  width: 80%;
+}
+
 .text, .world-text {
   display: flex;
   justify-content: center;
@@ -50,11 +56,50 @@ body {
   text-align: center;
 }
 
+.world-text{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.explosion {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+
+.explode {
+  opacity: 1;
+  transform: scale(5);
+  background-color: orange;
+  box-shadow: 0 0 50px yellow;
+}
+
+
 .yessir {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 20px;
+}
+
+.thinking--img{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.actual--thinking{
+  padding-top: 20px;
+  width: 50%;
 }
 
 .yes-option, .no-option {
@@ -80,6 +125,17 @@ body {
   align-items: center;
   flex-wrap: wrap;
   margin-top: 20px;
+
+}
+
+.smallerbutton{
+  width: 50%;
+  max-width: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .button-container button {
@@ -92,6 +148,8 @@ body {
   margin: 10px;
   cursor: pointer;
   flex: 1 1 auto;
+  background-color: red;
+
 }
 
 @media (max-width: 768px) {

@@ -2,39 +2,64 @@ const btnNo = document.getElementById("btnNo");
 let opacityLevel = 0;
 
 function moveButtonRandomly() {
-    const container = document.querySelector('.button-container');
-    const containerRect = container.getBoundingClientRect();
-    const buttonWidth = btnNo.offsetWidth;
-    const buttonHeight = btnNo.offsetHeight;
-    const maxLeft = containerRect.width - buttonWidth;
-    const maxTop = containerRect.height - buttonHeight;
+  const btnNope = document.getElementById("btnNope");
+  const windowWidth = window.innerWidth;
+  const windowHeight = window.innerHeight;
+  const buttonWidth = btnNope.offsetWidth;
+  const buttonHeight = btnNope.offsetHeight;
 
-    let newLeft, newTop;
-    do {
-        newLeft = Math.random() * maxLeft;
-        newTop = Math.random() * maxTop;
-    } while (
-        newLeft > btnNo.offsetLeft - buttonWidth && newLeft < btnNo.offsetLeft + buttonWidth &&
-        newTop > btnNo.offsetTop - buttonHeight && newTop < btnNo.offsetTop + buttonHeight
-    );
+  // Generate random positions within the viewport bounds
+  const newLeft = Math.random() * (windowWidth - buttonWidth);
+  const newTop = Math.random() * (windowHeight - buttonHeight);
 
-    btnNo.style.left = `${newLeft}px`;
-    btnNo.style.top = `${newTop}px`;
-    btnNo.style.position = 'absolute';
+  btnNope.style.left = `${newLeft}px`;
+  btnNope.style.top = `${newTop}px`;
+  btnNope.style.position = "absolute"; // Ensure button moves
 }
 
-function increaseOpacity() {
-  console.log("hello");
-    const bgImage = document.querySelector('.bg-image');
-    if (opacityLevel < 1) {
-        opacityLevel += 0.1;  // Increase opacity by 0.1
-        bgImage.style.opacity = opacityLevel;
-    }
-}
+document.addEventListener("DOMContentLoaded", function () {
+  let countdown = 10;
+  
+  // Create countdown element
+  const countdownElement = document.createElement("h1");
+  countdownElement.textContent = countdown;
+  document.querySelector(".countdown--timer").appendChild(countdownElement);
+  
+  // Create explosion effect
+  const explosion = document.createElement("div");
+  explosion.classList.add("explosion");
+  document.querySelector(".countdown--timer").appendChild(explosion);
+  
+  // Start countdown
+  const interval = setInterval(() => {
+      countdown--;
+      countdownElement.textContent = countdown;
+      
+      if (countdown <= 0) {
+          clearInterval(interval);
+          countdownElement.textContent = "BOOM!";
+          explosion.classList.add("explode");
+          
+          // Redirect to a 404 error page
+          setTimeout(() => {
+              window.location.href = "/404";
+          }, 1000);
+      }
+  }, 1000);
+});
+
+
 
 function when(){
   console.log("then is when");
-  window.location.href = "when.html"
+  window.location.href = "yes.html"
+
+}
+
+function when2(){
+  console.log("she clicked no LESGOOO");
+  window.location.href = "no.html"
+  
 }
 
 function yippie(){
@@ -52,6 +77,19 @@ function yippie(){
   });
 }
 
+function goback(){
+  window.location.href="page5.html"
+  
+}
+
+function nextpage(){
+  windows.location.href="page3.html"
+}
+
+function thinking(){
+  console.log("this is being pressed")
+  window.location.href="explode.html"
+}
 
 function wruf() {
   // Prompt the user for input
